@@ -2,15 +2,20 @@
   "name": "smite-discord-bot-nodejs",
   "version": "1.0.0",
   "description": "Discord bot built with the intention of mastering Node.js and building a useful tool for my friends and I for a game we enjoy",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "node ."
   },
   "author": "arfemia",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/builders": "^0.12.0",
     "@discordjs/rest": "^0.3.0",
     "discord-api-types": "^0.31.0",
-    "discord.js": "^13.6.0"
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0"
   }
 }
