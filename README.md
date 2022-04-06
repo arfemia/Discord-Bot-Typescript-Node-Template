@@ -30,6 +30,38 @@ This is starter code for running a single server discord bot. The server's ID is
     Discord bot client ready!
     ```
 - Start customizing commands in [`src/commands/example.ts`](src/commands/example.ts)
+- Or create a new command in [`src/commands`](src/commands)
+    ```typescript
+    // src/commands/newCommand.ts
+    import { SlashCommandBuilder } from "@discordjs/builders";
+    import { MessageEmbed } from "discord.js";
+    import { Command } from "../interfaces/Command"; 
+
+    export const newCommand : Command = {
+        data: new SlashCommandBuilder()
+                    // command entered as: /testcommand
+                    .setName('testcommand')
+                    .setDescription('description of command'),
+        run: async (interaction) => {
+            // allow for response to take longer than 3 seconds
+            await interaction.deferReply() 
+
+            const embedResponse = new MessageEmbed();
+            embedResponse.setTitle('Response title here')
+            embedResponse.setDescription('Response description here')
+
+            await interaction.editReply({embeds: [embedResponse]});
+        }
+    }
+    ```
+- then in [`src/_CommandList.ts`](src/_CommandList.ts) append your new command to the list:
+    ```typescript
+    import { Command } from "./interfaces/Command";
+    import { command } from "./commands/example";
+    import { newCommand } from "./commands/newCommand"
+
+    export const CommandList: Command[] = [command, newCommand];
+    ```
 
 ## Deploy to Heroku
 - ***BEFORE DEPLOYING TO HEROKU: [FOLLOW THE LOCAL DEVELOPMENT GUIDE](#local-development)*** to setup repository for your bot and ensure it works properly with discord in your local dev environment

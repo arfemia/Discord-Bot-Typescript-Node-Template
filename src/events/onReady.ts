@@ -22,7 +22,7 @@ export const onReady = async (BOT: Client) => {
             { body: commandData }
         );
 
-        console.log("Discord bot ready!");
+        console.log("Discord bot client ready!");
     } catch (e) {
         console.warn('Failed to map commands to Discord Rest API: ', e)
     }
