@@ -4,21 +4,26 @@ import { Routes } from "discord-api-types/v9";
 import { CommandList } from "../_CommandList";
 
 export const onReady = async (BOT: Client) => {
-    const rest = new REST({ version: "9" }).setToken(
-        process.env.BOT_TOKEN as string
-    );
-
-    const commandData = CommandList.map((command) => command.data.toJSON());
 
 
+    try {
 
-    await rest.put(
-        Routes.applicationGuildCommands(
-            BOT.user?.id || "missing id",
-            process.env.GUILD_ID as string
-        ),
-        { body: commandData }
-    );
+        const rest = new REST({ version: "9" }).setToken(
+            process.env.BOT_TOKEN as string
+        );
 
-    console.log("Discord ready!");
+        const commandData = CommandList.map((command) => command.data.toJSON());
+
+        await rest.put(
+            Routes.applicationGuildCommands(
+                BOT.user?.id || "missing id",
+                process.env.GUILD_ID as string
+            ),
+            { body: commandData }
+        );
+
+        console.log("Discord bot ready!");
+    } catch (e) {
+        console.warn('Failed to map commands to Discord Rest API: ', e)
+    }
 };

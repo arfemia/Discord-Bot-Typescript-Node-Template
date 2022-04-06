@@ -13,7 +13,7 @@ export const command: Command = {
         .addStringOption((option) =>
             option
                 .setName("message")
-                .setDescription("The message to go in your 100 Days of Code update.")
+                .setDescription("sample input parameter")
                 .setRequired(true)
         ),
 
