@@ -4,7 +4,10 @@ export const validateEnv = () => {
       return false;
     }
   
-    
+    if (!process.env.GUILD_ID) {
+      console.warn('Missing Guild (Discord Server) ID');
+      return true;
+    }
     return true;
   };
   
