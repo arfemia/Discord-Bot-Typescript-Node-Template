@@ -23,7 +23,7 @@ This is starter code for running a single server discord bot. The server's ID is
         - Paste the Server ID in you .env file
         - If desired, you can disable Developer Mode now.
 - Run `npm run build` then `npm start`
-    If properly setup, you should see the following in your console:
+- If properly setup, you should see the following in your console:
     ```bash
     Env variables loaded successfully
     Starting Discord bot client...
@@ -37,9 +37,9 @@ This is starter code for running a single server discord bot. The server's ID is
     ```bash
     worker: npm start
     ```
-- Ensure 
 - Create a [Heroku App](https://signup.heroku.com/)
 - Set up [Automatic Deployments with Github](https://devcenter.heroku.com/articles/github-integration)
+- Ensure you have your most recent `BOT_TOKEN` from you Discord Bot admin panel
 - Set [config vars](https://devcenter.heroku.com/articles/config-vars) on the settings page of your Heroku app dashboard:
     ```bash
     BOT_TOKEN=YOUR_BOT_TOKEN_HERE
